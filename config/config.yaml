@@ -1,0 +1,27 @@
+# 服务配置，设置运行模式，监听端口和最大持续时间
+Server:
+    RunMode: debug
+    HttpPort: 9000
+    ReadTimeout: 60
+    WriteTimeout: 60
+# 应用配置
+App:
+    DefaultPageSize: 10
+    MaxPageSize: 100
+    LogSavePath: storage/logs
+    LogFileName: app
+    LogFileExt : .log
+
+Database:
+    Type: mysql
+    Host: 127.0.0.1
+    Port: 3306
+    User: root
+    Password: 123456
+    Database: test
+    DBName: blog_service
+    TablePrefix: blog_
+    Charset: utf8mb4
+    ParseTime: true
+    MaxIdleConns: 10
+    MaxOpenConns: 30

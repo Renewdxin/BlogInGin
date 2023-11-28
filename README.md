@@ -17,3 +17,27 @@
         - `Frames` 类型是一个迭代器，提供了每个调用栈帧的详细信息，包括文件名、行号、函数名等。
 
 这两个函数通常用于在调试或记录日志时获取调用栈信息，以便更好地理解程序的执行流程，或者在日志中附加额外的调用者信息。在上述的日志库中，`WithCallersFrames` 方法使用了这两个函数来获取多个调用者的详细信息，并将其保存在 `Logger` 实例的 `callers` 字段中。
+
+
+关于报错
+
+```shell
+gorm.io/driver/postgres 
+C:\Program Files\JetBrains\GoLand 2023.2.2\pkg\mod\gorm.io\driver\postgres@v1.2.3\migrator.go:341:38: cannot use column (variable of type Column) as gorm.ColumnType value in argument to append: Column does not implement gorm.ColumnType (missing method AutoIncrement)
+```
+此时可能是版本运行过低的原因
+输入命令
+```shell
+PS D:\GoWokrs\src\BloginGin> go get -u ./...                                             
+...
+go: upgraded gorm.io/driver/postgres v1.2.3 => v1.5.4
+```
+之后就发现好了
+
+
+
+
+
+
+
+

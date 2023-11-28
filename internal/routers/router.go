@@ -1,14 +1,20 @@
 package routers
 
 import (
+	_ "BloginGin/docs"
 	v1 "BloginGin/internal/routers/api/v1"
 	"github.com/gin-gonic/gin"
+	"github.com/swaggo/files"
+	ginSwagger "github.com/swaggo/gin-swagger"
 )
 
 func NewRouter() *gin.Engine {
 	r := gin.New()
 	r.Use(gin.Logger())
 	r.Use(gin.Recovery())
+	// 注册一个针对Swagger的路由
+	// http://localhost:9090/swagger/index.html
+	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
 	article := v1.NewArticle()
 	tag := v1.NewTag()

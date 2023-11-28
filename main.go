@@ -23,6 +23,11 @@ func init() {
 	}
 }
 
+// @title BloginGin
+// @version 1.0
+// @description BloginGin API文档
+// @contact.name API Support
+// @BasePath /api/v1
 func main() {
 	router := routers.NewRouter()
 	err := setupDBEngine()

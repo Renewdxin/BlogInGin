@@ -1,0 +1,110 @@
+basePath: /api/v1
+definitions:
+  errcode.Error:
+    type: object
+  model.Tag:
+    properties:
+      created_by:
+        type: string
+      created_on:
+        type: integer
+      deleted_on:
+        type: integer
+      id:
+        type: integer
+      is_del:
+        type: integer
+      modified_by:
+        type: string
+      modified_on:
+        type: integer
+      name:
+        type: string
+      state:
+        type: integer
+    type: object
+info:
+  contact:
+    name: API Support
+  description: BloginGin API文档
+  title: BloginGin
+  version: "1.0"
+paths:
+  /api/v1/tags:
+    get:
+      parameters:
+      - description: tag name
+        in: query
+        maxLength: 100
+        name: name
+        type: string
+      - default: 1
+        description: state
+        enum:
+        - 0
+        - 1
+        in: query
+        name: state
+        type: integer
+      - description: page
+        in: query
+        name: page
+        type: integer
+      - description: pageSize
+        in: query
+        name: page_size
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: success
+          schema:
+            $ref: '#/definitions/model.Tag'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/errcode.Error'
+    post:
+      parameters:
+      - description: tag body
+        in: body
+        maxLength: 100
+        minLength: 3
+        name: name
+        required: true
+        schema:
+          type: string
+      - default: 1
+        description: state
+        in: body
+        name: state
+        schema:
+          enum:
+          - 0
+          - 1
+          type: integer
+      - description: founder
+        in: body
+        maxLength: 100
+        minLength: 3
+        name: created_by
+        required: true
+        schema:
+          type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: success
+          schema:
+            $ref: '#/definitions/model.Tag'
+        "400":
+          description: request error
+          schema:
+            $ref: '#/definitions/errcode.Error'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/errcode.Error'
+swagger: "2.0"

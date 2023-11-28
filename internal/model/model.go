@@ -4,7 +4,7 @@ import (
 	"BloginGin/global"
 	"BloginGin/pkg/setting"
 	"fmt"
-	"gorm.io/driver/mysql"
+	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
 	"gorm.io/gorm/schema"
@@ -31,13 +31,11 @@ type Model struct {
 //   - error: 如果创建过程中发生错误，则返回相应的错误信息。
 func NewDBEngine(databaseSetting *setting.DatabaseSettingS) (*gorm.DB, error) {
 	// 构建数据库连接字符串
-	s := fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=%s&parseTime=%t&loc=Local",
+	s := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=5432 sslmode=disable TimeZone=Asia/Shanghai",
+		databaseSetting.Host,
 		databaseSetting.UserName,
 		databaseSetting.Password,
-		databaseSetting.Host,
 		databaseSetting.DBName,
-		databaseSetting.Charset,
-		databaseSetting.ParseTime,
 	)
 
 	// 根据运行模式设置日志级别
@@ -49,7 +47,7 @@ func NewDBEngine(databaseSetting *setting.DatabaseSettingS) (*gorm.DB, error) {
 	}
 
 	// 使用 GORM 打开数据库连接
-	db, err := gorm.Open(mysql.Open(s), &gorm.Config{
+	db, err := gorm.Open(postgres.Open(s), &gorm.Config{
 		NamingStrategy: schema.NamingStrategy{
 			SingularTable: true,
 		},

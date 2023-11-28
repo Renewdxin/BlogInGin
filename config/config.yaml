@@ -13,12 +13,12 @@ App:
     LogFileExt : .log
 
 Database:
-    Type: mysql
+    Type: postgres
     Host: 127.0.0.1
-    Port: 3306
-    User: root
-    Password: 123456
-    Database: test
+    Port: 5432
+    User: postgres
+    Password: 26221030
+    Database: blog_service
     DBName: blog_service
     TablePrefix: blog_
     Charset: utf8mb4

@@ -4,18 +4,22 @@ import (
 	"BloginGin/global"
 	"BloginGin/internal/model"
 	"BloginGin/internal/routers"
+	"BloginGin/pkg/logger"
 	setting2 "BloginGin/pkg/setting"
-	"github.com/gin-gonic/gin"
+	"gopkg.in/natefinch/lumberjack.v2"
 	"log"
 	"net/http"
 	"time"
 )
 
 func init() {
-	gin.SetMode(global.ServerSetting.RunMode)
 	err := setupSetting()
 	if err != nil {
 		log.Fatalf("init.setupSetting err : %v", err)
+	}
+	err = setupLogger()
+	if err != nil {
+		log.Fatalf("init.setupLogger err: %v", err)
 	}
 }
 
@@ -68,5 +72,17 @@ func setupDBEngine() error {
 	if err != nil {
 		return err
 	}
+	return nil
+}
+
+func setupLogger() error {
+	fileName := global.AppSetting.LogSavePath + "/" + global.AppSetting.LogFileName + global.AppSetting.LogFileExt
+	// 用 lumberjack 作为 io.Writer
+	global.Logger = logger.NewLogger(&lumberjack.Logger{
+		Filename:  fileName,
+		MaxSize:   600,
+		MaxAge:    10,
+		LocalTime: true,
+	}, "", log.LstdFlags).WithCaller(2) //在获取调用栈信息时，跳过当前 setupLogger 函数和调用 setupLogger 的上一层调用。
 	return nil
 }

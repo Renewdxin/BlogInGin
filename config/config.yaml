@@ -1,7 +1,7 @@
 # 服务配置，设置运行模式，监听端口和最大持续时间
 Server:
     RunMode: debug
-    HttpPort: 9000
+    HttpPort: 9090
     ReadTimeout: 60
     WriteTimeout: 60
 # 应用配置
@@ -16,10 +16,10 @@ Database:
     Type: postgres
     Host: 127.0.0.1
     Port: 5432
-    User: postgres
+    UserName: postgres
     Password: 26221030
-    Database: blog_service
-    DBName: blog_service
+    Database: blog_server
+    DBName: blog_server
     TablePrefix: blog_
     Charset: utf8mb4
     ParseTime: true

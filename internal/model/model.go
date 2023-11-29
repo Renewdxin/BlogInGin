@@ -64,7 +64,42 @@ func NewDBEngine(databaseSetting *setting.DatabaseSettingS) (*gorm.DB, error) {
 	}
 	sqlDB.SetMaxIdleConns(databaseSetting.MaxIdleConns)
 	sqlDB.SetMaxOpenConns(databaseSetting.MaxOpenConns)
+	//db.Callback().Create().Replace("gorm:update_time_stamp",  BeforeUpdate)
 
 	// 返回创建的数据库引擎实例
 	return db, nil
 }
+
+//func BeforeCreate(tx *gorm.DB) (err error) {
+//
+//	return
+//
+//}
+//
+//func BeforeUpdate(tx *gorm.DB) error {
+//	if _, ok := tx.Statement.Context.Value("gorm:update_column").(string); !ok {
+//		_ = uint32(time.Now().Unix())
+//	}
+//	return nil
+//}
+//
+//func (t Tag) BeforeDelete(tx *gorm.DB) (err error) {
+//	var extraOption string
+//	if str, ok := tx.Statement.Context.Value("gorm:delete_option").(string); !ok {
+//		extraOption = fmt.Sprint(str)
+//	}
+//	deleteOnField, hasDeletedOnField := tx.Get("DeletedOn")
+//	isDelFiled, hasIsDelField := tx.Get("IsDel")
+//	if!hasDeletedOnField &&!hasIsDelField {
+//		now := time.Now().Unix()
+//		tx.
+//	}
+//
+//	return
+//}
+//
+//// 在查询记录之前调用的回调
+//func (t Tag) AfterFind(tx *gorm.DB) (err error) {
+//	// 在这里可以执行在查询记录之后需要进行的操作
+//	return
+//}

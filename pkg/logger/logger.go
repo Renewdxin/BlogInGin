@@ -171,3 +171,11 @@ func (logger *Logger) Fatal(v ...interface{}) {
 func (logger *Logger) Fatalf(format string, v ...interface{}) {
 	logger.Output(LevelFatal, fmt.Sprintf(format, v...))
 }
+
+func (logger *Logger) Error(v ...interface{}) {
+	logger.Output(LevelError, fmt.Sprint(v...))
+}
+
+func (logger *Logger) Errorf(format string, v ...interface{}) {
+	logger.Output(LevelError, fmt.Sprintf(format, v...))
+}

@@ -20,7 +20,7 @@ func (t Tag) TableName() string {
 	return "blog_tag"
 }
 
-func (t Tag) Count(db *gorm.DB) (int64, error) {
+func (t Tag) Count(db *gorm.DB) (int, error) {
 	var count int64
 	if t.Name != "" {
 		db = db.Where("name = ?", t.Name)
@@ -30,7 +30,7 @@ func (t Tag) Count(db *gorm.DB) (int64, error) {
 	if err != nil {
 		return 0, err
 	}
-	return count, nil
+	return int(count), nil
 }
 
 func (t Tag) List(db *gorm.DB, pageOffset, pageSize int) ([]*Tag, error) {

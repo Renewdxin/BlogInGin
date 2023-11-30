@@ -16,48 +16,51 @@ type TagSwagger struct {
 	Pager *app.Pager
 }
 
-func (t Tag) TableName() string {
+func (tag Tag) TableName() string {
 	return "blog_tag"
 }
 
-func (t Tag) Count(db *gorm.DB) (int, error) {
+func (tag Tag) Count(db *gorm.DB) (int, error) {
 	var count int64
-	if t.Name != "" {
-		db = db.Where("name = ?", t.Name)
+	if tag.Name != "" {
+		db = db.Where("name = ?", tag.Name)
 	}
-	db = db.Where("state = ?", t.State)
-	err := db.Model(&t).Where("is_del = ?", 0).Count(&count).Error
+	db = db.Where("state = ?", tag.State)
+	err := db.Model(&tag).Where("is_del = ?", 0).Count(&count).Error
 	if err != nil {
 		return 0, err
 	}
 	return int(count), nil
 }
 
-func (t Tag) List(db *gorm.DB, pageOffset, pageSize int) ([]*Tag, error) {
+func (tag Tag) List(db *gorm.DB, pageOffset, pageSize int) ([]*Tag, error) {
 	var tags []*Tag
 	var err error
 	if pageOffset >= 0 && pageSize > 0 {
 		db = db.Offset(pageOffset).Limit(pageSize)
 	}
-	if t.Name != "" {
-		db = db.Where("name = ?", t.Name)
+	if tag.Name != "" {
+		db = db.Where("name = ?", tag.Name)
 	}
-	db = db.Where("state = ?", t.State)
+	db = db.Where("state = ?", tag.State)
 	if err = db.Where("is_del = ?", 0).Find(&tags).Error; err != nil {
 		return nil, err
 	}
 	return tags, nil
 }
 
-func (t Tag) Create(db *gorm.DB) error {
-	return db.Create(&t).Error
+func (tag Tag) Create(db *gorm.DB) error {
+	return db.Create(&tag).Error
 }
 
-func (t Tag) Update(db *gorm.DB) error {
-	db = db.Model(&Tag{}).Where("id = ? AND is_del = ?", t.ID, 0)
-	return db.Updates(&t).Error
+func (tag Tag) Update(db *gorm.DB, values interface{}) error {
+	err := db.Model(tag).Where("id = ? AND is_del = ?", tag.ID).Updates(values).Error
+	if err != nil {
+		return err
+	}
+	return nil
 }
 
-func (t Tag) Delete(db *gorm.DB) error {
-	return db.Where("id = ? AND id_del = ?", t.ID, 0).Delete(&t).Error
+func (tag Tag) Delete(db *gorm.DB) error {
+	return db.Where("id = ? AND id_del = ?", tag.ID, 0).Delete(&tag).Error
 }

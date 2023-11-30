@@ -1,7 +1,7 @@
 # 服务配置，设置运行模式，监听端口和最大持续时间
 Server:
     RunMode: debug
-    HttpPort: 9090
+    HttpPort: 9000
     ReadTimeout: 60
     WriteTimeout: 60
 # 应用配置
@@ -11,7 +11,14 @@ App:
     LogSavePath: storage/logs
     LogFileName: app
     LogFileExt : .log
-
+    UPloadPath: storage/uploads
+    UPloadServerUrl: http://127.0.0.1:9000/static
+    UploadImageMaxSize: 5 # MB
+    UploadImageAllowExt:
+    - .jpg
+    - .jpeg
+    - .png
+    - .gif
 Database:
     Type: postgres
     Host: 127.0.0.1
@@ -25,3 +32,4 @@ Database:
     ParseTime: true
     MaxIdleConns: 10
     MaxOpenConns: 30
+

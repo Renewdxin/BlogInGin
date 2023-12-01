@@ -6,3 +6,9 @@
 2023/11/30 22:32:42 {"callers":["D:/GoWokrs/src/BloginGin/main.go: 20 main.init.0"],"level":"error","message":"app.BindAndValid errs: [CreatedBy为必填字段]","time":1701354762788079300}
 2023/11/30 22:32:49 {"callers":["D:/GoWokrs/src/BloginGin/main.go: 20 main.init.0"],"level":"error","message":"app.BindAndValid errs: [CreatedBy为必填字段]","time":1701354769763806500}
 2023/11/30 22:34:26 {"callers":["D:/GoWokrs/src/BloginGin/main.go: 20 main.init.0"],"level":"error","message":"app.BindAndValid errs: [CreatedBy为必填字段]","time":1701354866041043400}
+2023/12/01 22:05:00 {"callers":["D:/GoWokrs/src/BloginGin/main.go: 20 main.init.0"],"level":"error","message":"app BindAndValid errs: [AppKey为必填字段 AppSecret为必填字段]","time":1701439500867331900}
+2023/12/01 22:07:07 {"callers":["D:/GoWokrs/src/BloginGin/main.go: 20 main.init.0"],"level":"error","message":"app BindAndValid errs: [AppKey为必填字段 AppSecret为必填字段]","time":1701439627726931500}
+2023/12/01 22:07:11 {"callers":["D:/GoWokrs/src/BloginGin/main.go: 20 main.init.0"],"level":"error","message":"app BindAndValid errs: [AppKey为必填字段 AppSecret为必填字段]","time":1701439631133644900}
+2023/12/01 22:07:24 {"callers":["D:/GoWokrs/src/BloginGin/main.go: 20 main.init.0"],"level":"error","message":"app BindAndValid errs: [AppSecret为必填字段 AppKey为必填字段]","time":1701439644581150100}
+2023/12/01 22:07:41 {"callers":["D:/GoWokrs/src/BloginGin/main.go: 20 main.init.0"],"level":"error","message":"app BindAndValid errs: [AppKey为必填字段 AppSecret为必填字段]","time":1701439661623801300}
+2023/12/01 22:07:46 {"callers":["D:/GoWokrs/src/BloginGin/main.go: 20 main.init.0"],"level":"error","message":"app BindAndValid errs: [AppKey为必填字段 AppSecret为必填字段]","time":1701439666937931300}

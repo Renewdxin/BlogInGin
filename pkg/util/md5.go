@@ -5,6 +5,7 @@ import (
 	"encoding/hex"
 )
 
+// EncodeMD5 对文件名进行格式化
 func EncodeMD5(value string) string {
 	m := md5.New()
 	m.Write([]byte(value))

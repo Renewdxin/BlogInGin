@@ -4,6 +4,7 @@ import (
 	_ "BloginGin/docs"
 	"BloginGin/global"
 	"BloginGin/internal/middleware"
+	"BloginGin/internal/routers/api"
 	v1 "BloginGin/internal/routers/api/v1"
 	"github.com/gin-gonic/gin"
 	"github.com/swaggo/files"
@@ -26,6 +27,8 @@ func NewRouter() *gin.Engine {
 	upload := NewUpload()
 	r.POST("/upload/file", upload.UploadFile)
 	r.StaticFS("/static", http.Dir(global.AppSetting.UploadSavePath))
+
+	r.GET("/auth", api.GetAuth)
 
 	apiv1 := r.Group("/api/v1")
 	{

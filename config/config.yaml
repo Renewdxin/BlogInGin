@@ -36,3 +36,16 @@ JWT:
     Secret: renxin
     Issuer: blog-service
     Expire: 7200
+Email:
+    Host: smtp.qq.com
+    Port: 465
+    UserName:
+    Password:
+    IsSSL: true
+    From:
+    To:
+Redis:
+    Host: 127.0.0.1
+    Port: 6379
+    Password:
+    DB: 0

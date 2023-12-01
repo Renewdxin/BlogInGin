@@ -85,3 +85,14 @@ COMMENT ON TABLE blog_article IS '文章管理';
 COMMENT ON TABLE blog_article_tag IS '文章标签关联表';
 
 
+CREATE TABLE IF NOT EXISTS blog_auth (
+    id SERIAL NOT NULL PRIMARY KEY ,
+    app_key VARCHAR(20) DEFAULT '' ,
+    app_secret VARCHAR(50) DEFAULT '',
+    created_on INT DEFAULT '0',
+    created_by VARCHAR(100) DEFAULT '',
+    modified_on INT DEFAULT '0',
+    modified_by VARCHAR(255) DEFAULT '',
+    deleted_on INT DEFAULT '0',
+    is_del SMALLINT DEFAULT '0'
+);

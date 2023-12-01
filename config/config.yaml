@@ -32,4 +32,7 @@ Database:
     ParseTime: true
     MaxIdleConns: 10
     MaxOpenConns: 30
-
+JWT:
+    Secret: renxin
+    Issuer: blog-service
+    Expire: 7200

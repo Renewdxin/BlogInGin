@@ -1,1 +1,8 @@
 2023/11/29 13:50:08 {"callers":["D:/GoWokrs/src/BloginGin/main.go: 20 main.init.0"],"level":"error","message":"app.BindAndValid errs: [State必须是[0 1]中的一个]","time":1701237008652961800}
+2023/11/30 22:30:43 {"callers":["D:/GoWokrs/src/BloginGin/main.go: 20 main.init.0"],"level":"error","message":"app.BindAndValid errs: [CreatedBy为必填字段]","time":1701354643951311100}
+2023/11/30 22:30:56 {"callers":["D:/GoWokrs/src/BloginGin/main.go: 20 main.init.0"],"level":"error","message":"app.BindAndValid errs: [CreatedBy为必填字段]","time":1701354656821031800}
+2023/11/30 22:31:15 {"callers":["D:/GoWokrs/src/BloginGin/main.go: 20 main.init.0"],"level":"error","message":"app.BindAndValid errs: [CreatedBy为必填字段]","time":1701354675813635900}
+2023/11/30 22:32:21 {"callers":["D:/GoWokrs/src/BloginGin/main.go: 20 main.init.0"],"level":"error","message":"app.BindAndValid errs: [CreatedBy为必填字段]","time":1701354741098087500}
+2023/11/30 22:32:42 {"callers":["D:/GoWokrs/src/BloginGin/main.go: 20 main.init.0"],"level":"error","message":"app.BindAndValid errs: [CreatedBy为必填字段]","time":1701354762788079300}
+2023/11/30 22:32:49 {"callers":["D:/GoWokrs/src/BloginGin/main.go: 20 main.init.0"],"level":"error","message":"app.BindAndValid errs: [CreatedBy为必填字段]","time":1701354769763806500}
+2023/11/30 22:34:26 {"callers":["D:/GoWokrs/src/BloginGin/main.go: 20 main.init.0"],"level":"error","message":"app.BindAndValid errs: [CreatedBy为必填字段]","time":1701354866041043400}

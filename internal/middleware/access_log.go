@@ -39,7 +39,7 @@ func AccessLog() gin.HandlerFunc {
 			"response": bodyWriter.body.String(),
 		}
 		s := "access log: method: %s, status_code: %d," + "begin_time: %d, end_time: %d"
-		global.Logger.WithFields(fields).Infof(s, c.Request.Method, bodyWriter.Status(), beginTime, endTime)
+		global.Logger.WithFields(fields).Infof(c, s, c.Request.Method, bodyWriter.Status(), beginTime, endTime)
 	}
 }
 
@@ -48,7 +48,7 @@ func Recovery() gin.HandlerFunc {
 		defer func() {
 			if err := recover(); err != nil {
 				s := "panic recover err: %v"
-				global.Logger.WithCallersFrames().Errorf(s, err)
+				global.Logger.WithCallersFrames().Errorf(c.Request.Context(), s, err)
 				app.NewResponse(c).ToErrorResponse(errcode.ServerError)
 				c.Abort()
 			}

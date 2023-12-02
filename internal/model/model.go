@@ -10,7 +10,6 @@ import (
 	"gorm.io/gorm/schema"
 )
 
-// 共同具有的属性
 type Model struct {
 	ID         uint32 `gorm:"primary_key" json:"id"`
 	CreatedBy  string `json:"created_by"`
@@ -65,7 +64,6 @@ func NewDBEngine(databaseSetting *setting.DatabaseSettingS) (*gorm.DB, error) {
 	sqlDB.SetMaxIdleConns(databaseSetting.MaxIdleConns)
 	sqlDB.SetMaxOpenConns(databaseSetting.MaxOpenConns)
 	//db.Callback().Create().Replace("gorm:update_time_stamp",  BeforeUpdate)
-
 	// 返回创建的数据库引擎实例
 	return db, nil
 }

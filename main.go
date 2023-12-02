@@ -7,10 +7,20 @@ import (
 	"BloginGin/pkg/logger"
 	setting2 "BloginGin/pkg/setting"
 	"BloginGin/pkg/tracer"
+	"flag"
 	"gopkg.in/natefinch/lumberjack.v2"
 	"log"
 	"net/http"
+	"os"
+	"os/exec"
+	"path/filepath"
 	"time"
+)
+
+var (
+	port    string
+	runMode string
+	config  string
 )
 
 func init() {
@@ -27,6 +37,11 @@ func init() {
 	if err != nil {
 		log.Fatalf("init.setupTracer err: %v", err)
 	}
+
+	err = setupFlag()
+	if err != nil {
+		log.Fatalf("init.setupFlag err: %v", err)
+	}
 }
 
 // @title BloginGin
@@ -35,6 +50,10 @@ func init() {
 // @contact.name API Support
 // @BasePath /api/v1
 func main() {
+	file, _ := exec.LookPath(os.Args[0])
+	path, _ := filepath.Abs(file)
+	log.Println(path)
+
 	router := routers.NewRouter()
 	err := setupDBEngine()
 	if err != nil {
@@ -116,5 +135,13 @@ func setupTracer() error {
 	}
 
 	global.Tracer = jaegerTracer
+	return nil
+}
+
+func setupFlag() error {
+	flag.StringVar(&port, "port", "", "starting port")
+	flag.StringVar(&runMode, "mode", "", "run mode")
+	flag.StringVar(&config, "config", "", "config file path")
+	flag.Parse()
 	return nil
 }

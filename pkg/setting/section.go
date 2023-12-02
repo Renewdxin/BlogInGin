@@ -4,6 +4,8 @@ import (
 	"time"
 )
 
+var sections = make(map[string]interface{})
+
 // 声明配置属性的结构体
 type ServerSettingS struct {
 	RunMode      string
@@ -59,6 +61,10 @@ func (s *Setting) ReadSection(k string, v interface{}) error {
 	err := s.vp.UnmarshalKey(k, v)
 	if err != nil {
 		return err
+	}
+
+	if _, ok := sections[k]; !ok {
+		sections[k] = v
 	}
 	return nil
 }

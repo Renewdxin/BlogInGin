@@ -7,10 +7,23 @@ import (
 	"BloginGin/pkg/logger"
 	setting2 "BloginGin/pkg/setting"
 	"BloginGin/pkg/tracer"
+	"context"
+	"flag"
 	"gopkg.in/natefinch/lumberjack.v2"
 	"log"
 	"net/http"
+	"os"
+	"os/exec"
+	"os/signal"
+	"path/filepath"
+	"syscall"
 	"time"
+)
+
+var (
+	port    string
+	runMode string
+	config  string
 )
 
 func init() {
@@ -27,6 +40,11 @@ func init() {
 	if err != nil {
 		log.Fatalf("init.setupTracer err: %v", err)
 	}
+
+	err = setupFlag()
+	if err != nil {
+		log.Fatalf("init.setupFlag err: %v", err)
+	}
 }
 
 // @title BloginGin
@@ -35,6 +53,10 @@ func init() {
 // @contact.name API Support
 // @BasePath /api/v1
 func main() {
+	file, _ := exec.LookPath(os.Args[0])
+	path, _ := filepath.Abs(file)
+	log.Println(path)
+
 	router := routers.NewRouter()
 	err := setupDBEngine()
 	if err != nil {
@@ -48,7 +70,26 @@ func main() {
 		WriteTimeout:   10 * time.Second,
 		MaxHeaderBytes: 1 << 20,
 	}
-	s.ListenAndServe()
+
+	go func() {
+		err := s.ListenAndServe()
+		if err != nil && err != http.ErrServerClosed {
+			log.Fatalf("s.ListenAndServe err: %v", err)
+		}
+	}()
+
+	quit := make(chan os.Signal)
+	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
+	<-quit
+	log.Println("Shutdown Server...")
+
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	defer cancel()
+	if err := s.Shutdown(ctx); err != nil {
+		log.Fatal("Server Shutdown:", err)
+	}
+
+	log.Println("Server exiting")
 }
 
 func setupSetting() error {
@@ -85,6 +126,13 @@ func setupSetting() error {
 	global.JWTSetting.Expire *= time.Second
 	global.ServerSetting.ReadTimeout *= time.Second
 	global.ServerSetting.WriteTimeout *= time.Second
+
+	if port != "" {
+		global.ServerSetting.HttpPort = port
+	}
+	if runMode != "" {
+		global.ServerSetting.RunMode = runMode
+	}
 	return nil
 }
 
@@ -116,5 +164,13 @@ func setupTracer() error {
 	}
 
 	global.Tracer = jaegerTracer
+	return nil
+}
+
+func setupFlag() error {
+	flag.StringVar(&port, "port", "", "starting port")
+	flag.StringVar(&runMode, "mode", "", "run mode")
+	flag.StringVar(&config, "config", "", "config file path")
+	flag.Parse()
 	return nil
 }

@@ -1,8 +1,8 @@
 package middleware
 
 import (
-	"BloginGin/pkg/app"
-	"BloginGin/pkg/errcode"
+	"github.com/Renewdxin/BlogInGin/pkg/app"
+	"github.com/Renewdxin/BlogInGin/pkg/errcode"
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
 )

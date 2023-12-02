@@ -1,8 +1,8 @@
 package dao
 
 import (
-	"BloginGin/internal/model"
-	"BloginGin/pkg/app"
+	"github.com/Renewdxin/BlogInGin/internal/model"
+	"github.com/Renewdxin/BlogInGin/pkg/app"
 )
 
 func (d *Dao) CountTag(name string, state uint8) (int, error) {

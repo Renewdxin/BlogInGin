@@ -1,9 +1,9 @@
 package model
 
 import (
-	"BloginGin/global"
-	"BloginGin/pkg/setting"
 	"fmt"
+	"github.com/Renewdxin/BlogInGin/global"
+	"github.com/Renewdxin/BlogInGin/pkg/setting"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"

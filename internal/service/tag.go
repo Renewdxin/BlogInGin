@@ -1,8 +1,8 @@
 package service
 
 import (
-	"BloginGin/internal/model"
-	"BloginGin/pkg/app"
+	"github.com/Renewdxin/BlogInGin/internal/model"
+	"github.com/Renewdxin/BlogInGin/pkg/app"
 )
 
 type CountTagRequest struct {

@@ -1,8 +1,8 @@
 package upload
 
 import (
-	"BloginGin/global"
-	"BloginGin/pkg/util"
+	"github.com/Renewdxin/BlogInGin/global"
+	"github.com/Renewdxin/BlogInGin/pkg/util"
 	"io"
 	"mime/multipart"
 	"os"

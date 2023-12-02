@@ -1,12 +1,12 @@
 package routers
 
 import (
-	"BloginGin/global"
-	"BloginGin/internal/service"
-	"BloginGin/pkg/app"
-	"BloginGin/pkg/convert"
-	"BloginGin/pkg/errcode"
-	"BloginGin/pkg/upload"
+	"github.com/Renewdxin/BlogInGin/global"
+	"github.com/Renewdxin/BlogInGin/internal/service"
+	"github.com/Renewdxin/BlogInGin/pkg/app"
+	"github.com/Renewdxin/BlogInGin/pkg/convert"
+	"github.com/Renewdxin/BlogInGin/pkg/errcode"
+	"github.com/Renewdxin/BlogInGin/pkg/upload"
 	"github.com/gin-gonic/gin"
 )
 

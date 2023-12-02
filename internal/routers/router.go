@@ -1,12 +1,12 @@
 package routers
 
 import (
-	_ "BloginGin/docs"
-	"BloginGin/global"
-	"BloginGin/internal/middleware"
-	"BloginGin/internal/routers/api"
-	v1 "BloginGin/internal/routers/api/v1"
-	"BloginGin/pkg/limiter"
+	_ "github.com/Renewdxin/BlogInGin/docs"
+	"github.com/Renewdxin/BlogInGin/global"
+	"github.com/Renewdxin/BlogInGin/internal/middleware"
+	"github.com/Renewdxin/BlogInGin/internal/routers/api"
+	v1 "github.com/Renewdxin/BlogInGin/internal/routers/api/v1"
+	"github.com/Renewdxin/BlogInGin/pkg/limiter"
 	"github.com/gin-gonic/gin"
 	"github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"

@@ -1,9 +1,9 @@
 package service
 
 import (
-	"BloginGin/global"
-	"BloginGin/pkg/upload"
 	"errors"
+	"github.com/Renewdxin/BlogInGin/global"
+	"github.com/Renewdxin/BlogInGin/pkg/upload"
 	"mime/multipart"
 	"os"
 )

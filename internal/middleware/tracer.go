@@ -1,8 +1,8 @@
 package middleware
 
 import (
-	"BloginGin/global"
 	"context"
+	"github.com/Renewdxin/BlogInGin/global"
 	"github.com/gin-gonic/gin"
 	"github.com/opentracing/opentracing-go"
 	"github.com/opentracing/opentracing-go/ext"

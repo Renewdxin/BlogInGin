@@ -1,11 +1,11 @@
 package middleware
 
 import (
-	"BloginGin/global"
-	"BloginGin/pkg/app"
-	"BloginGin/pkg/email"
-	"BloginGin/pkg/errcode"
 	"fmt"
+	"github.com/Renewdxin/BlogInGin/global"
+	"github.com/Renewdxin/BlogInGin/pkg/app"
+	"github.com/Renewdxin/BlogInGin/pkg/email"
+	"github.com/Renewdxin/BlogInGin/pkg/errcode"
 	"github.com/gin-gonic/gin"
 	"time"
 )

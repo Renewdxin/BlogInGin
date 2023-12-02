@@ -1,7 +1,7 @@
 package app
 
 import (
-	"BloginGin/pkg/errcode"
+	"github.com/Renewdxin/BlogInGin/pkg/errcode"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )

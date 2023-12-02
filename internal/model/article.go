@@ -1,6 +1,6 @@
 package model
 
-import "BloginGin/pkg/app"
+import "github.com/Renewdxin/BlogInGin/pkg/app"
 
 // define Article
 type Article struct {

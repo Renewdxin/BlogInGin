@@ -1,9 +1,9 @@
 package service
 
 import (
-	"BloginGin/global"
-	"BloginGin/internal/dao"
 	"context"
+	"github.com/Renewdxin/BlogInGin/global"
+	"github.com/Renewdxin/BlogInGin/internal/dao"
 )
 
 type Service struct {

@@ -1,7 +1,7 @@
 package model
 
 import (
-	"BloginGin/pkg/app"
+	"github.com/Renewdxin/BlogInGin/pkg/app"
 	"gorm.io/gorm"
 )
 

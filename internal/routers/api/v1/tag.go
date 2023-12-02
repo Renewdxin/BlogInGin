@@ -1,10 +1,10 @@
 package v1
 
 import (
-	"BloginGin/global"
-	"BloginGin/internal/service"
-	"BloginGin/pkg/app"
-	"BloginGin/pkg/errcode"
+	"github.com/Renewdxin/BlogInGin/global"
+	"github.com/Renewdxin/BlogInGin/internal/service"
+	"github.com/Renewdxin/BlogInGin/pkg/app"
+	"github.com/Renewdxin/BlogInGin/pkg/errcode"
 	"github.com/gin-gonic/gin"
 )
 

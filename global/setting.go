@@ -1,8 +1,8 @@
 package global
 
 import (
-	"BloginGin/pkg/logger"
-	"BloginGin/pkg/setting"
+	"github.com/Renewdxin/BlogInGin/pkg/logger"
+	"github.com/Renewdxin/BlogInGin/pkg/setting"
 )
 
 var (

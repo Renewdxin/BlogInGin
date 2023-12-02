@@ -1,9 +1,9 @@
 package middleware
 
 import (
-	"BloginGin/pkg/app"
-	"BloginGin/pkg/errcode"
-	"BloginGin/pkg/limiter"
+	"github.com/Renewdxin/BlogInGin/pkg/app"
+	"github.com/Renewdxin/BlogInGin/pkg/errcode"
+	"github.com/Renewdxin/BlogInGin/pkg/limiter"
 	"github.com/gin-gonic/gin"
 )
 

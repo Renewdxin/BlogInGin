@@ -1,14 +1,14 @@
 package main
 
 import (
-	"BloginGin/global"
-	"BloginGin/internal/model"
-	"BloginGin/internal/routers"
-	"BloginGin/pkg/logger"
-	setting2 "BloginGin/pkg/setting"
-	"BloginGin/pkg/tracer"
 	"context"
 	"flag"
+	"github.com/Renewdxin/BlogInGin/global"
+	"github.com/Renewdxin/BlogInGin/internal/model"
+	"github.com/Renewdxin/BlogInGin/internal/routers"
+	"github.com/Renewdxin/BlogInGin/pkg/logger"
+	setting2 "github.com/Renewdxin/BlogInGin/pkg/setting"
+	"github.com/Renewdxin/BlogInGin/pkg/tracer"
 	"gopkg.in/natefinch/lumberjack.v2"
 	"log"
 	"net/http"

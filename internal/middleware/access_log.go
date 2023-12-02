@@ -1,11 +1,11 @@
 package middleware
 
 import (
-	"BloginGin/global"
-	"BloginGin/pkg/app"
-	"BloginGin/pkg/errcode"
-	"BloginGin/pkg/logger"
 	"bytes"
+	"github.com/Renewdxin/BlogInGin/global"
+	"github.com/Renewdxin/BlogInGin/pkg/app"
+	"github.com/Renewdxin/BlogInGin/pkg/errcode"
+	"github.com/Renewdxin/BlogInGin/pkg/logger"
 	"github.com/gin-gonic/gin"
 	"time"
 )

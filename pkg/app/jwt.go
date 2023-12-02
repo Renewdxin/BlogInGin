@@ -1,8 +1,8 @@
 package app
 
 import (
-	"BloginGin/global"
-	"BloginGin/pkg/util"
+	"github.com/Renewdxin/BlogInGin/global"
+	"github.com/Renewdxin/BlogInGin/pkg/util"
 	"github.com/dgrijalva/jwt-go"
 	"time"
 )

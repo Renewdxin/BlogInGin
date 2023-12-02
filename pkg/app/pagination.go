@@ -1,8 +1,8 @@
 package app
 
 import (
-	"BloginGin/global"
-	"BloginGin/pkg/convert"
+	"github.com/Renewdxin/BlogInGin/global"
+	"github.com/Renewdxin/BlogInGin/pkg/convert"
 	"github.com/gin-gonic/gin"
 )
 

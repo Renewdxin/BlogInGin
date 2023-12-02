@@ -13,14 +13,14 @@ func GetAuth(c *gin.Context) {
 	response := app.NewResponse(c)
 	valid, errs := app.BindAndValid(c, &param)
 	if !valid {
-		global.Logger.Errorf("app BindAndValid errs: %v", errs)
+		global.Logger.Errorf(c.Request.Context(), "app BindAndValid errs: %v", errs)
 		response.ToErrorResponse(errcode.UnauthorizedAuthNotExist)
 		return
 	}
 
 	token, err := app.GenerateToken(param.AppKey, param.AppSecret)
 	if err != nil {
-		global.Logger.Errorf("app GenerateToken err: %v", err)
+		global.Logger.Errorf(c.Request.Context(), "app GenerateToken err: %v", err)
 		response.ToErrorResponse(errcode.UnauthorizedTokenGenerate)
 		return
 	}

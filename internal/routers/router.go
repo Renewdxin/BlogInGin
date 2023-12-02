@@ -34,6 +34,7 @@ func NewRouter() *gin.Engine {
 	r.Use(middleware.RateLimiter(methodLimiters))
 	r.Use(middleware.ContextTimeout(60 * time.Second))
 	r.Use(middleware.Translations())
+	r.Use(middleware.Tracing())
 	// 注册一个针对Swagger的路由
 	// http://localhost:9090/swagger/index.html
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))

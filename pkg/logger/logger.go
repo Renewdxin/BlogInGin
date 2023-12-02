@@ -27,6 +27,7 @@ const (
 	LevelWarn
 	LevelError
 	LevelFatal
+	LevelPanic
 )
 
 func (level Level) String() string {
@@ -42,7 +43,7 @@ func (level Level) String() string {
 	case LevelFatal:
 		return "fatal"
 	default:
-		return "unknown"
+		return "panic"
 	}
 }
 
@@ -178,4 +179,8 @@ func (logger *Logger) Error(v ...interface{}) {
 
 func (logger *Logger) Errorf(format string, v ...interface{}) {
 	logger.Output(LevelError, fmt.Sprintf(format, v...))
+}
+
+func (logger *Logger) Panicf(format string, v ...interface{}) {
+	logger.Output(LevelPanic, fmt.Sprintf(format, v...))
 }

@@ -43,6 +43,16 @@ type JWTSettingS struct {
 	Expire time.Duration
 }
 
+type EmailSettingS struct {
+	Host     string
+	Port     int
+	Username string
+	Password string
+	IsSSL    bool
+	From     string
+	To       []string
+}
+
 // ReadSection 从配置文件中读取指定的配置项，并将其解析为相应的类型。
 // 参数 k 是要读取的配置项的名称，v 是用于存储配置项值的变量。
 func (s *Setting) ReadSection(k string, v interface{}) error {
